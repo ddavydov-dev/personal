@@ -1,51 +1,55 @@
 ---
+import { Image } from 'astro:assets';
+import photo from '../assets/me.jpg'
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-const expectations = [{
-	title: "Technical Deep Dives",
-	description: "From exploring advanced TypeScript patterns to optimizing React performance and building robust Node.js backends, I'll be diving into the technical details and sharing practical tips and tricks."
-},
-{
-   title: "Project Showcases",
-   description: "I'll be showcasing some of the projects I'm working on, big or small, and walking through the design decisions, challenges faced, and lessons learned."
-},
- {
-	title: "Web Development Trends",
-	description: "The web development landscape is constantly changing.  I'll be keeping an eye on the latest trends and sharing my perspectives on new technologies, frameworks, and best practices."
- },
- {
-	title: "Thoughts and Reflections",
-	description: "Beyond the code, I'll also be sharing my thoughts on the software development industry, career advice, and other musings related to this fascinating field."
- },
+const projects = [{
+	title: "My Duo",
+	description: "My version of Duolingo for learning Finnish",
+	href: "https://my-duo.vercel.app/",
+}
  ]
 
 const posts = await getCollection('blog')
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-
 ---
 
 <Layout>
-		<h1 class="text-3xl font-bold mb-4">Welcome to My Digital Musings!</h1>
-  
-		<p class="mb-4">Hey there, fellow coders and curious minds! I'm Gemini, a full-stack developer passionate about building cool things with TypeScript, React, Node.js, and all the other fun tools in the modern web development toolbox. This blog is where I'll be sharing my thoughts, experiences, and learnings as I navigate the ever-evolving world of software development.</p>
-  
-		<p class="mb-4">Expect to find posts on:</p>
-  
-		<ul class="list-disc pl-6 mb-4">
-		  {expectations.map(({ title, description }) => (
-			<li>{title}: {description}</li>
-		  ))}
+	<div class="flex gap-3 items-center">
+          <Image
+            src={photo}
+            alt="Photo of Denis Davydov"
+            fetchpriority="high"
+            height="48"
+            width="48"
+			class="rounded-full"
+			densities={[2, 2]}
+          />
+        <div class="flex flex-col">
+          <span class="">Denis Davydov</span>
+          <span class="text-gray-500">Full-Stack Developer</span>
+        </div>
+      </div>
+
+	  	<h2 class="text-xl font-semibold mb-4 mt-12">About</h2>
+		<p class="font-normal">Skilled full-stack developer with 3+ years of <a href="/experience" class="text-blue-600 hover:text-blue-500">experience</a> in React, TypeScript, and Node.js. Strong in agile workflows, handling both frontend and backend tasks. Eager to build scalable, high-quality solutions and drive impactful projects.</p>
+
+	  	<h2 class="text-xl font-semibold mb-4 mt-12">Projects</h2>
+	  	<ul>
+			{projects.map((({title, description, href}) => (
+				<li>
+					
+					<a href={href} class="font-medium text-blue-600 hover:underline" target="_blank">
+						{title}
+					</a>
+					<p class="text-gray-600 text-sm">{description}</p>
+				</li>
+			)))}
 		</ul>
-  
-		<p class="mb-4">I'm excited to share this journey with you. Whether you're a seasoned developer or just starting out, I hope you'll find something interesting and valuable here.</p>
-  
-		<p class="mb-4">Feel free to connect with me on [Links to your social media/portfolio]. Let's learn and grow together!</p>
-  
-		<p class="mb-4">Happy coding!</p>
-  
-		<h2 class="text-2xl font-bold mb-4 mt-8">Recent Posts</h2>
-		<ul class="list-disc pl-6">
+		
+		<h2 class="text-xl font-semibold mb-4 mt-12">Writing</h2>
+		<ul>
 			{posts.map((post) => (
 				<li>
 					<a href={`/blog/${post.slug}`} class="font-medium text-blue-600 hover:underline">

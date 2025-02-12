@@ -1,7 +1,21 @@
 ---
 import "../styles/global.css";
+const {title = "Denis Davydov"} = Astro.props
 
-const {title = "My Digital Musings"} = Astro.props
+const socials = [
+	{
+		title: "linkedin",
+		href: "/"
+	},
+	{
+		title: "resume",
+		href: "/",
+	},
+	{
+		title: "ddavydov.dev@gmail.com",
+		href: "/"
+	}
+]
 ---
 
 <!doctype html>
@@ -13,9 +27,14 @@ const {title = "My Digital Musings"} = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-gray-100">
-		<main class="container mx-auto p-4 bg-gray-100 min-h-screen">
+	<body class="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
+		<main class="mx-auto max-w-2xl py-4 md:pt-10 font-medium">
 			<slot />
 		</main>
+
+		<footer class="mt-12 flex justify-center space-x-4">
+			{socials.map(({href, title}) => <a href={href} class="text-gray-400 dark:text-gray-500 hover:text-blue-500 transition-colors duration-200" target="_blank">{title}</a>)}
+		
+		</footer>
 	</body>
 </html>

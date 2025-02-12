@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import Prose from '../../components/Prose.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -15,9 +16,9 @@ const { Content } = await post.render();
 ---
 
 <Layout title={post.data.title}>
-  <article>
+  <Prose>
     <h1 class="text-3xl font-bold mb-4">{post.data.title}</h1>
     <time class="text-gray-600 mb-4">Published on: {new Date(post.data.pubDate).toLocaleDateString()}</time>
     <Content />
-  </article>
+  </Prose>
 </Layout>
