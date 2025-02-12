@@ -1,5 +1,6 @@
 TODO
 
+0. Better code highlighting https://docs.astro.build/en/guides/syntax-highlighting/#components-for-code-blocks
 1. 404
 2. Experience
 3. Testimonials
