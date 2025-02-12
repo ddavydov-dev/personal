@@ -1,11 +1,58 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const expectations = [{
+	title: "Technical Deep Dives",
+	description: "From exploring advanced TypeScript patterns to optimizing React performance and building robust Node.js backends, I'll be diving into the technical details and sharing practical tips and tricks."
+},
+{
+   title: "Project Showcases",
+   description: "I'll be showcasing some of the projects I'm working on, big or small, and walking through the design decisions, challenges faced, and lessons learned."
+},
+ {
+	title: "Web Development Trends",
+	description: "The web development landscape is constantly changing.  I'll be keeping an eye on the latest trends and sharing my perspectives on new technologies, frameworks, and best practices."
+ },
+ {
+	title: "Thoughts and Reflections",
+	description: "Beyond the code, I'll also be sharing my thoughts on the software development industry, career advice, and other musings related to this fascinating field."
+ },
+ ]
+
+const posts = await getCollection('blog')
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+
 ---
 
 <Layout>
-	<Welcome />
+		<h1 class="text-3xl font-bold mb-4">Welcome to My Digital Musings!</h1>
+  
+		<p class="mb-4">Hey there, fellow coders and curious minds! I'm Gemini, a full-stack developer passionate about building cool things with TypeScript, React, Node.js, and all the other fun tools in the modern web development toolbox. This blog is where I'll be sharing my thoughts, experiences, and learnings as I navigate the ever-evolving world of software development.</p>
+  
+		<p class="mb-4">Expect to find posts on:</p>
+  
+		<ul class="list-disc pl-6 mb-4">
+		  {expectations.map(({ title, description }) => (
+			<li>{title}: {description}</li>
+		  ))}
+		</ul>
+  
+		<p class="mb-4">I'm excited to share this journey with you. Whether you're a seasoned developer or just starting out, I hope you'll find something interesting and valuable here.</p>
+  
+		<p class="mb-4">Feel free to connect with me on [Links to your social media/portfolio]. Let's learn and grow together!</p>
+  
+		<p class="mb-4">Happy coding!</p>
+  
+		<h2 class="text-2xl font-bold mb-4 mt-8">Recent Posts</h2>
+		<ul class="list-disc pl-6">
+			{posts.map((post) => (
+				<li>
+					<a href={`/blog/${post.slug}`} class="font-medium text-blue-600 hover:underline">
+						{post.data.title}
+					</a>
+					<p class="text-gray-600 text-sm">{post.data.description}</p>
+				</li>
+			))}
+		</ul>
 </Layout>
