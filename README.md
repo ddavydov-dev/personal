@@ -7,6 +7,7 @@ Blog:
 2. Tags + Search
 3. Internal links and tooltips
 4. RSS
+5. Add a conclusion part with github source code, gifs with the result and so on
 
 General:
 
