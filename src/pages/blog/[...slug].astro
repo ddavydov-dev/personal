@@ -17,8 +17,8 @@ const { Content } = await post.render();
 
 <Layout title={post.data.title}>
   <Prose>
-    <h1 class="text-3xl font-bold mb-4">{post.data.title}</h1>
-    <time class="text-gray-600 mb-4">Published on: {new Date(post.data.pubDate).toLocaleDateString()}</time>
+    <h1 class="text-4xl font-bold mb-0">{post.data.title}</h1>
+    <time class="text-sm text-gray-600 mb-4">Published on: {new Date(post.data.pubDate).toLocaleDateString()}</time>
     <Content />
   </Prose>
 </Layout>

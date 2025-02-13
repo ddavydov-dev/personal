@@ -20,11 +20,11 @@ Next.js built for React sounds nice for highly interactive and dynamic websites 
 
 Let’s also compare options from the above by web performance you can achieve with them:
 
-![Screenshot 2025-02-12 at 16.14.26.png](./img/1.png)
+![Comparison of Core Web Vitals over time](./img/1.png)
 
-![Screenshot 2025-02-12 at 16.14.46.png](./img/2.png)
+![Comparison of Lighthouse over time](./img/2.png)
 
-_More examples_ [link](https://httparchive.org/reports/techreport/comparison?median-lighthouse-over-time=performance&client=mobile&good-cwv-over-time=overall&median-weight-over-time=total&tech=Astro%2CJekyll%2CHugo%2CNext.js%2CNuxt.js%2CGatsby&geo=ALL&rank=ALL#report-content)
+More [examples](https://httparchive.org/reports/techreport/comparison?median-lighthouse-over-time=performance&client=mobile&good-cwv-over-time=overall&median-weight-over-time=total&tech=Astro%2CJekyll%2CHugo%2CNext.js%2CNuxt.js%2CGatsby&geo=ALL&rank=ALL#report-content)
 
 Of course, the values are average and you can achieve much better results with any of the options but it’s nice to see that Astro is leading among JS tools.
 
@@ -47,19 +47,19 @@ Short overview of directories:
 - layouts (optional) contains wrappers for pages
 - pages (required) contains routes of our website
 
-![Screenshot 2025-02-11 at 14.52.23.png](./img/3.png)
+![Project structure](./img/3.png)
 
 _Astro supports pages of different formats: .astro, .md(x), .html, and .js/.ts_ [link](https://docs.astro.build/en/basics/astro-pages/#supported-page-files)
 
 Run the project with **npm run dev** and make sure that it works correctly
 
-![Screenshot 2025-02-11 at 15.04.14.png](./img/4.png)
+![Starting page](./img/4.png)
 
 ### Making the main page
 
 Let’s delete the components directory and all inline styles. We’ll put our content right inside the page for simplicity.
 
-Before adding the content, install Tailwind for a quick styling following this guide - [link](https://docs.astro.build/en/guides/styling/#tailwind)
+Before adding the content, install Tailwind for a quick styling following this [guide](https://docs.astro.build/en/guides/styling/#tailwind)
 
 ```bash
 npx astro add tailwindcss
@@ -177,11 +177,11 @@ export const collections = { blog }
 
 Now if we remove a metadata field from the blog, Astro will throw an error
 
-![Screenshot 2025-02-12 at 18.26.33.png](./img/5.png)
+![Astro error about missed required metadate](./img/5.png)
 
 Here’s the structure we got
 
-![Screenshot 2025-02-12 at 18.27.18.png](./img/6.png)
+![Content directory structure](./img/6.png)
 
 Let’s update the main page so we see our article
 
@@ -245,7 +245,7 @@ const { Content } = await post.render();
 
 Astro can read .md files and render its content. We see it as Content. That component we use in our template with title and date of publishing
 
-In the end let’s add styles to our .md posts using this guide - [link](https://docs.astro.build/en/recipes/tailwind-rendered-markdown/#setting-up-tailwindcsstypography)
+In the end let’s add styles to our .md posts using this [guide](https://docs.astro.build/en/recipes/tailwind-rendered-markdown/#setting-up-tailwindcsstypography)
 
 ```bash
 npm install -D @tailwindcss/typography
@@ -264,9 +264,8 @@ And create a component Prose.astro which we’re gonna use as a wrapper for our 
 ---
 <article
   class="prose dark:prose-invert
-  prose-h1:font-bold prose-h1:text-xl
-  prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
-  prose-headings:underline">
+  prose-h1:font-bold
+  prose-a:text-blue-600 prose-img:rounded-xl prose-h2:mb-3">
   <slot />
 </article>
 ```

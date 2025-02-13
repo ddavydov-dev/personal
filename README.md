@@ -1,6 +1,15 @@
 TODO
 
-0. Better code highlighting https://docs.astro.build/en/guides/syntax-highlighting/#components-for-code-blocks
+Blog:
+
+0. Work with formatting
+1. Better code highlighting + copy button https://docs.astro.build/en/guides/syntax-highlighting/#components-for-code-blocks
+2. Tags + Search
+3. Internal links and tooltips
+4. RSS
+
+General:
+
 1. 404
 2. Experience
 3. Testimonials

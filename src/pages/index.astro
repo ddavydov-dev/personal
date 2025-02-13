@@ -27,15 +27,15 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 			densities={[2, 2]}
           />
         <div class="flex flex-col">
-          <span class="">Denis Davydov</span>
-          <span class="text-gray-500">Full-Stack Developer</span>
+          <span class="text-xl text-semibold">Denis Davydov</span>
+          <span class="text-gray-500 text-sm">Full-Stack Developer</span>
         </div>
       </div>
 
-	  	<h2 class="text-xl font-semibold mb-4 mt-12">About</h2>
+	  	<h2 class="text-xl font-medium mb-2 mt-6">About</h2>
 		<p class="font-normal">Skilled full-stack developer with 3+ years of <a href="/experience" class="text-blue-600 hover:text-blue-500">experience</a> in React, TypeScript, and Node.js. Strong in agile workflows, handling both frontend and backend tasks. Eager to build scalable, high-quality solutions and drive impactful projects.</p>
 
-	  	<h2 class="text-xl font-semibold mb-4 mt-12">Projects</h2>
+	  	<h2 class="text-xl font-medium mb-2 mt-10">Projects</h2>
 	  	<ul>
 			{projects.map((({title, description, href}) => (
 				<li>
@@ -48,7 +48,7 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 			)))}
 		</ul>
 		
-		<h2 class="text-xl font-semibold mb-4 mt-12">Writing</h2>
+		<h2 class="text-xl font-medium mb-2 mt-10">Writing</h2>
 		<ul>
 			{posts.map((post) => (
 				<li>
