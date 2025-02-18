@@ -4,12 +4,18 @@ import photo from '../assets/me.jpg'
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-const projects = [{
-	title: "My Duo",
-	description: "My version of Duolingo for learning Finnish",
-	href: "https://my-duo.vercel.app/",
-}
- ]
+const projects = [
+	{
+		title: "My Duo",
+		description: "My version of Duolingo for learning Finnish",
+		href: "https://my-duo.vercel.app/",
+	},
+	{
+		title: "DOPS",
+		description: "Delivery Order Price Calculator Wolt 2025 assignment",
+		href: "https://github.com/fixprogram/dops"
+	}	
+]
 
 const posts = await getCollection('blog')
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
