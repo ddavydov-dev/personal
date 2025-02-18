@@ -20,9 +20,9 @@ Next.js built for React sounds nice for highly interactive and dynamic websites 
 
 Let’s also compare options from the above by web performance you can achieve with them:
 
-![Comparison of Core Web Vitals over time](./img/1.png)
+![Comparison of Core Web Vitals over time](./img/diving-into-astro/1.png)
 
-![Comparison of Lighthouse over time](./img/2.png)
+![Comparison of Lighthouse over time](./img/diving-into-astro/2.png)
 
 More [examples](https://httparchive.org/reports/techreport/comparison?median-lighthouse-over-time=performance&client=mobile&good-cwv-over-time=overall&median-weight-over-time=total&tech=Astro%2CJekyll%2CHugo%2CNext.js%2CNuxt.js%2CGatsby&geo=ALL&rank=ALL#report-content)
 
@@ -47,13 +47,13 @@ Short overview of directories:
 - layouts (optional) contains wrappers for pages
 - pages (required) contains routes of our website
 
-![Project structure](./img/3.png)
+![Project structure](./img/diving-into-astro/3.png)
 
 _Astro supports pages of different formats: .astro, .md(x), .html, and .js/.ts_ [link](https://docs.astro.build/en/basics/astro-pages/#supported-page-files)
 
 Run the project with **npm run dev** and make sure that it works correctly
 
-![Starting page](./img/4.png)
+![Starting page](./img/diving-into-astro/4.png)
 
 ### Making the main page
 
@@ -177,11 +177,11 @@ export const collections = { blog }
 
 Now if we remove a metadata field from the blog, Astro will throw an error
 
-![Astro error about missed required metadate](./img/5.png)
+![Astro error about missed required metadate](./img/diving-into-astro/5.png)
 
 Here’s the structure we got
 
-![Content directory structure](./img/6.png)
+![Content directory structure](./img/diving-into-astro/6.png)
 
 Let’s update the main page so we see our article
 

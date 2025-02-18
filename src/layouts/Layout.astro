@@ -1,19 +1,30 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
 const {title = "Denis Davydov"} = Astro.props
 
 const socials = [
 	{
 		title: "linkedin",
-		href: "/"
+		props: {
+
+			href: "https://www.linkedin.com/in/denis-davydov-227893234/"
+		}
 	},
 	{
 		title: "resume",
-		href: "/",
+		props: {
+
+			href: "/public/cv.pdf",
+			download: "Denis_Davydov_CV.pdf"
+		}
 	},
 	{
 		title: "ddavydov.dev@gmail.com",
-		href: "/"
+		props: {
+
+			href: "mailto:ddavydov.dev@gmail.com"
+		}
 	}
 ]
 ---
@@ -26,6 +37,7 @@ const socials = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ClientRouter />
 	</head>
 	<body class="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
 		<main class="mx-auto max-w-2xl py-8 md:pt-10 font-medium w-full">
@@ -33,7 +45,7 @@ const socials = [
 		</main>
 
 		<footer class="mt-12 flex justify-center space-x-4">
-			{socials.map(({href, title}) => <a href={href} class="text-gray-400 dark:text-gray-500 hover:text-blue-500 transition-colors duration-200" target="_blank">{title}</a>)}
+			{socials.map(({title, props}) => <a class="text-gray-400 dark:text-gray-500 hover:text-blue-500 transition-colors duration-200" target="_blank" {...props}>{title}</a>)}
 		
 		</footer>
 	</body>
