@@ -1,7 +1,7 @@
 ---
 title: 'Diving into Astro'
 description: "Let's dive into Astro and build a simple blog."
-pubDate: '2025-02-12'
+pubDate: '2024-02-12'
 ---
 
 I used to be a React guy but you can't solve all kinds of issues with one instrument. It’s time to enhance the stack and create a project I was procrastinating a lot - a blog.
